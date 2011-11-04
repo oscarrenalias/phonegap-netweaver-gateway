@@ -22,6 +22,8 @@
 	<false/>
 	<key>ExternalHosts</key>
 	<array>
+		<string>maps.google.com</string>
+		<string>maps.googleapis.com</string>
 		<string>gw.esworkplace.sap.com</string>
 	</array>
 	<key>Plugins</key>

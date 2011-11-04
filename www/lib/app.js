@@ -29,7 +29,7 @@
 			if(bank.street != undefined)
 				markup += "<p>" + bank.street + ", "+ bank.city + ", " + bank.country + "</p>";
 
-			markup += '<div data-role="collapsible"><h3>See location</h3><p>map goes here</p></div>';
+			markup += '<div data-role="collapsible"><img id="map" alt="map" /></div>';
 			
 			return(markup);
 		}
@@ -57,7 +57,33 @@
 			// Now call changePage() and tell it to switch to
 			// the page we just modified.
 			$.mobile.changePage( $page, options );
+
+			this.showOnMap(bank, "#map");			
 		}		
+	}
+
+	app.prototype.showOnMap = function(bank, selector) {
+		// generate the static map image
+		this.geocode(bank.getFullAddress(), function(lat, lng) {
+			var mapUrl = "http://maps.google.com/maps/api/staticmap?center=" + 
+						  lat + "," + lng + 
+						  "&zoom=13&size=290x300&maptype=roadmap&key=MyGoogleMapsAPIKey&sensor=true";
+			// and set it in the page
+			$(selector).attr("src", mapUrl);			
+		});		
+	}
+
+	app.prototype.geocode = function(address, callback) {
+		var url = "http://maps.googleapis.com/maps/api/geocode/json?sensor=true&address=" + address;
+		$.get(url.prx(), function(data) {
+			if(data.status == "OK") {
+				var lat = data.results[0].geometry.location.lat;
+				var lng = data.results[0].geometry.location.lng;
+				console.log("lat = " + lat + ", lng = " + lng);
+
+				callback(lat, lng);
+			}		
+		});
 	}
 
 	window.app = app;

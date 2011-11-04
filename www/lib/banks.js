@@ -14,6 +14,10 @@ Bank = function(data) {
     }
 }
 
+Bank.prototype.getFullAddress = function() {
+    return(this.street + ", " + this.city + ", " + this.country);
+}
+
 Bank.data = [];
 
 Bank.getAll = function(callback) {

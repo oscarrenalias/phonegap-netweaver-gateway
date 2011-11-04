@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+		<meta charset="utf-8">
+
+		<title>Banks</title>
+		<link rel="stylesheet" href="lib/jqm/jquery.mobile.css" />
+		<script type="text/javascript" charset="utf-8" src="lib/phonegap-1.1.0.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery-1.6.4.js"></script>
+		<script type="text/javascript" src="lib/desktop.js"></script>
+		<script type="text/javascript" src="lib/app.js"></script>
+		<script type="text/javascript" src="lib/jqm/jquery.mobile.js"></script>
+		<script type="text/javascript" src="lib/datajs-1.0.2.js"></script>
+		<script type="text/javascript" src="lib/banks.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$.mobile.page.prototype.options.addBackBtn = true;
+				app.loadData();
+			})
+		</script>
+	</head>
+	<body>
+		<!-- list contents -->
+		<div id="main" data-role="page">
+			<div data-role="header" data-position="inline">
+				<h1>HEADER</h1>
+			</div> 
+			<div data-role="content">
+				<ul id="bank-list" data-role="listview" data-filter="true" data-theme="g">
+					<!-- empty -->
+				</ul>
+			</div> 
+		</div>
+
+		<!-- bank details -->
+		<div id="bank" data-role="page">
+			<div data-role="header" data-position="inline">
+				<h1>HEADER</h1>
+			</div> 
+			<div data-role="content">
+				
+			</div> 
+			<div data-role="footer">
+				<h4>FOOTER</h4>
+			</div>
+		</div>
+
+	</body>
+</html>

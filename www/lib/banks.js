@@ -21,7 +21,7 @@ Bank.prototype.getFullAddress = function() {
 Bank.data = [];
 
 Bank.getAll = function(callback) {
-    requestUri = "http://gw.esworkplace.sap.com/sap/opu/sdata/sap/DEMO_BANK/z_demo_bankCollection";
+    var requestUri = "http://gw.esworkplace.sap.com/sap/opu/sdata/sap/DEMO_BANK/z_demo_bankCollection";
     var banks = [];    
     OData.read( requestUri.prx(), function (data) { //Success Callback (received data is a Feed): 
         console.log(data.results.length + " banks loaded");
